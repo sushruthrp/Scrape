@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[12]:
 
 
 import urllib
@@ -64,7 +64,10 @@ j = 0
 file_names = getFileNames(soup)
 while (j < len(links)):
     filename = os.path.join(post_path, file_names[j])
-    urllib.request.urlretrieve('https:'+links[j], filename)
+    if (os.path.exists(filename)):
+        pass
+    else:
+        urllib.request.urlretrieve('https:'+links[j], filename)
     print(j)
     j+=1
     
